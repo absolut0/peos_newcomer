@@ -132,6 +132,11 @@ declare namespace Demo {
         orders?: ProductOrder[];
         [key: string]: string | string[] | number | boolean | undefined | ProductOrder[] | InventoryStatus;
     };
+     type Page = {
+        id?: string;
+        description: string;
+
+     }
 
     type ProductOrder = {
         id?: string;

@@ -1,0 +1,113 @@
+'use client';
+
+import { Button } from 'primereact/button';
+import { Carousel } from 'primereact/carousel';
+import { Galleria } from 'primereact/galleria';
+import { Image } from 'primereact/image';
+import React, { useEffect, useState } from 'react';
+import { PhotoService } from '../../../demo/service/PhotoService';
+import { ProductService } from '../../../demo/service/ProductService';
+import { PageService } from '../../../demo/service/PageService';
+import type { Demo } from '@/types';
+
+
+import Pdf from '../../documents/DD2875.pdf';
+import Pdf_aup from '../../documents/AUP.pdf';
+import Pdf_NV from '../../documents/NV39.pdf';
+
+const MediaDemo = () => {
+   // const [products, setProducts] = useState<Demo.Product[]>([]);
+   // const [images, setImages] = useState<Demo.Photo[]>([]);
+   const Pages = [];
+    const [pages, setPages] = useState<Demo.Page[]>([]);
+
+    const carouselResponsiveOptions = [
+        {
+            breakpoint: '1024px',
+            numVisible: 1,
+            numScroll: 1
+        },
+        {
+            breakpoint: '768px',
+            numVisible: 1,
+            numScroll: 1
+        },
+        {
+            breakpoint: '560px',
+            numVisible: 1,
+            numScroll: 1
+        }
+    ];
+
+    useEffect(() => {
+    //    ProductService.getProductsSmall().then((products) => setProducts(products));
+
+    //    PhotoService.getImages().then((images) => setImages(images));
+
+        PageService.getPages().then((pages) => setPages(pages));
+    }, []);
+
+    /*const carouselItemTemplate = (product: Demo.Product) => {
+        return (
+            <div className="border-1 surface-border border-round m-1 text-center py-5">
+                <div className="mb-3">
+                    <img src={`/demo/images/product/${product.image}`} alt={product.name} className="w-6 shadow-2" />
+                </div>
+                <div>
+                    <h4 className="p-mb-1">{product.name}</h4>
+                    <h6 className="mt-0 mb-3">${product.price}</h6>
+                    <span className={`product-badge status-${product.inventoryStatus?.toLowerCase()}`}>{product.inventoryStatus}</span>
+                    <div className="car-buttons mt-5">
+                        <Button type="button" className="mr-2" rounded icon="pi pi-search"></Button>
+                        <Button type="button" className="mr-2" severity="success" rounded icon="pi pi-star"></Button>
+                        <Button type="button" severity="help" rounded icon="pi pi-cog"></Button>
+                    </div>
+                </div>
+            </div>
+        );
+    };*/
+    const carouselItemTemplate = (page: Demo.Page) => {
+        return (
+
+                    
+            <div id="nv"
+                    className="col-12 mt-8 mb-8 p-2 md:p-8"
+                    style={{
+                        borderRadius: '20px',
+                        background: 'linear-gradient(0deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, #EFE1AF 0%, #C3DCFA 100%)',
+                        
+                    }}
+                >
+                    <div className="flex flex-wrap gap-2">
+                        <div className="col-12 text-center mt-8 mb-4">
+                        <h2 className="text-900 font-normal mb-2">Sign Night Vision Badge Request</h2>
+                        <span className={`product-badge status-${page.id}`}>{page.description}</span>
+                            <Button onClick={()=> window.open(Pdf_NV, "_blank")} label="Open NV 39" rounded severity="info" />
+                            <h2 className="text-900 font-normal mb-2">Sign Night Vision Badge Request</h2>
+                            <h2 className="text-900 font-normal mb-2">Sign Night Vision Badge Request</h2>
+                            <h2 className="text-900 font-normal mb-2">Sign Night Vision Badge Request</h2>
+                            <h2 className="text-900 font-normal mb-2">Sign Night Vision Badge Request</h2>
+                        </div>
+                    </div>                    
+            </div>
+
+        );
+    };
+
+
+
+    return (
+        <div className="grid p-fluid">
+            <div className="col-12">
+                <div className="card">
+                    <h5>Carousel</h5>
+                    <Carousel value={pages} numVisible={1} numScroll={1} responsiveOptions={carouselResponsiveOptions} itemTemplate={carouselItemTemplate}></Carousel>
+                </div>
+            </div>
+
+
+        </div>
+    );
+};
+
+export default MediaDemo;

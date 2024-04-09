@@ -12,6 +12,8 @@ import Link from 'next/link';
 import { Demo } from '@/types';
 import { ChartData, ChartOptions } from 'chart.js';
 
+import { redirect } from 'next/navigation'
+
 const lineData: ChartData = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
@@ -124,8 +126,11 @@ const Dashboard = () => {
         });
     };
 
-    return (
+    return ( 
         <div className="grid">
+            {
+                redirect('/starthere') //Redirecting to a different start page
+            }
             <div className="col-12 lg:col-6 xl:col-3">
                 <div className="card mb-0">
                     <div className="flex justify-content-between mb-3">
@@ -386,7 +391,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-        </div>
+                </div>
     );
 };
 

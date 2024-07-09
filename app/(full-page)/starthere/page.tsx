@@ -283,8 +283,8 @@ const MiscDemo = () => {
                         (ATCTS) profile to track and store your IT Prerequisite documents.</p>
                     <p>You will receive an email with instructions on how to complete the required steps.</p>
                     <h4>IT Prerequisite Documents:</h4>
-                    <li>Cyber Awareness Training (No CAC required)- <a href="https://public.cyber.mil/training/cyber-awareness-challenge/" target="_blank">DoD Cyber Exchange</a></li>
-                    <li>Army IT User Agreement (CAC required and can be completed upon CAC retrieval)</li>
+                    <p><li>Cyber Awareness Training (No CAC required)- <a href="https://public.cyber.mil/training/cyber-awareness-challenge/" target="_blank">DoD Cyber Exchange</a></li>
+                    <li>Army IT User Agreement (CAC required and can be completed upon CAC retrieval)</li></p>
                     <p style={{marginTop: "15px", fontWeight: "bold"}}>Please print your certificate upon completion of the training. There should be a printer attached to this machine that you can print to.</p>
                 </div>     
                 )}               
